@@ -235,7 +235,6 @@ char *submission;
 char *relayclient;
 char *dnsblskip;
 char *auth;
-stralloc authmethod = {0};
 /* authtlsvariables: start */
 int flagtls = 0;
 int forceauthmailfrom = 0;
@@ -2121,9 +2120,6 @@ char *arg;
     err_authinvalid();
     return;
   }
-
-  if (!stralloc_copys(&authmethod,authcmds[i].text)) die_nomem();
-  if (!stralloc_0(&authmethod)) die_nomem();
   /* end invalid auth command patch */
 
   if (!env_unset("SMTPAUTHMETHOD")) die_read("SMTPAUTHMETHOD not set");
