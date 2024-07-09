@@ -2115,8 +2115,6 @@ char *arg;
 
   /* invalid auth command patch */
   if (!authcmds[i].text) {
-    if (!stralloc_append(&protocol,"A")) die_nomem();
-    if (!stralloc_0(&protocol)) die_nomem();
     err_authinvalid();
     return;
   }
